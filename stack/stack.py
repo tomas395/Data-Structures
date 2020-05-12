@@ -16,7 +16,7 @@ class Stack:
         self.size = 0 #keeping track of the size of linkedlist
         self.storage = LinkedList() #assigning the self.storage to the linkedlist we imported
 
-    def __len__(self):   
+    def __len__(self):   #returning the length of the list
         return self.size
 
 
@@ -27,7 +27,7 @@ class Stack:
     def pop(self):
         if self.size > 0:
             self.size = self.size -1 # now we're subtracting from the size of the list
-        return self.storage.remove_from_head()
+        return self.storage.remove_from_head() # this method moves a node from the current linked list
 
 
 # This is for the array portion of the stack
