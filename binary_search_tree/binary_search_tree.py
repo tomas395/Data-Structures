@@ -17,8 +17,19 @@ class BSTNode:
 
     # Insert the given value into the tree
     def insert(self, value):
-        root = self
+        root = self #Assigning the self to root to help me visualize. not at all necessary and just for me
         new_node = BSTNode(value)
+        if value < root.value:  #If a nodes value is found to be less than the roots, it will put it to the left, if theres nothing there it will make a new node in it's place
+            if root.left is None:
+                root.left = new_node
+            else:
+                root.left.insert(value)
+        elif value > root.value: #Same as above except if it's higher, it will be placed to the right unless theres nothing in it, in that case it will be the new_node_right
+            if root.right is None:
+                root.right = new_node
+            else:
+                root.right.insert(value) #ayyyye it passed ♥ ... i think
+                # i need to figure out what BSTs do with duplicate values or if it's equal to the root or parent
 
     # Return True if the tree contains the value
     # False if it does not

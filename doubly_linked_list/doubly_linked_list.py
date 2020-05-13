@@ -41,7 +41,7 @@ class DoublyLinkedList:
         self.length = 1 if node is not None else 0
 
     def __len__(self): 
-        return self.length
+        return
 
     """Wraps the given value in a ListNode and inserts it 
     as the new head of the list. Don't forget to handle 
