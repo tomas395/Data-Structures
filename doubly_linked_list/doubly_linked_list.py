@@ -89,7 +89,7 @@ class DoublyLinkedList:
             if self.tail.prev is None:
                 self.head = None
             current_tail = self.tail.value
-            self.tail =self.tail.prev
+            self.tail = self.tail.prev
             self.length -= 1
             return current_tail
         else:
@@ -105,7 +105,7 @@ class DoublyLinkedList:
 
     """Removes the input node from its current spot in the 
     List and inserts it as the new tail node of the List."""
-    def move_to_end(self, node):
+    def move_to_end(self, node):       
         current_node = node
         if current_node.prev is None:
             self.head = current_node.next
@@ -140,7 +140,7 @@ class DoublyLinkedList:
     def get_max(self):
         max_value = self.head.value # assigning the var of max_value to be set according to the node's value
         current_node = self.head
-        while current_node: # using a while loop on each node in the list and iterating over them to get the value of each individual node. if the value is > than the last, it will be set to the new max_value and compare itself to the next, only becoming the next new max_value if it was greater than the last, otherwise it will move to the next node on the list until it stops and returns itself.
+        while current_node: # using a while loop on each node in the list and iterating over them to get the value of each individual node. if the value is > than the last, it will be set as the new max_value and compare itself to the next, only becoming the next new max_value if it was greater than the last, otherwise it will move to the next node on the list until it stops and returns itself.
             if current_node.value > max_value:
                 max_value = current_node.value
             current_node = current_node.next
