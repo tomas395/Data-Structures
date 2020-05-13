@@ -121,6 +121,7 @@ class DoublyLinkedList:
             self.tail = None  
             self.length -= 1 
             return node.value # this value would be deleted/no longer connected to the list
+
         elif node.prev is None: # this checks if the incoming node is deleted from the head 
             self.head = node.next 
             node.delete()
