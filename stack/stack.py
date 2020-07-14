@@ -12,8 +12,12 @@ return elements in Last In First Out order.
 3. What is the difference between using an array vs. a linked list when 
    implementing a Stack?
 """
+# Runtime complexity. Using a LinkedList will give us much better performance than using a a basic array.
+# It has to do with shifting each item over whenever inserting or removing nodes.
+# [] O(n) vs LL() O(1)
 
 
+# (O)1
 class Stack:
     def __init__(self):
         self.size = 0  # keeping track of the size of linkedlist
@@ -32,6 +36,8 @@ class Stack:
         if self.size > 0:
             self.size = self.size - 1  # now we're subtracting from the size of the list
         return self.storage.remove_tail()
+
+    # O(n)
     # class Stack:
 #     def __init__(self):
 #         self.size = 0
