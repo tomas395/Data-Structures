@@ -36,7 +36,7 @@ class Queue:
             # this method moves a node from the current linked list
             return self.storage.remove_head()
 
-
+# (queues care about linked lists more than a stack. a stack you can just use an array and it will be a linear operation)
 # class Queue:
 #     def __init__(self):
 #         self.size = 0

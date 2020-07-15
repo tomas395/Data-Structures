@@ -9,6 +9,8 @@ This part of the project comprises two days:
 2. Implement the `in_order_print`, `bft_print`, and `dft_print` methods
    on the BSTNode class.
 """
+
+
 class BSTNode:
     def __init__(self, value):
         self.value = value
@@ -17,25 +19,78 @@ class BSTNode:
 
     # Insert the given value into the tree
     def insert(self, value):
-        pass
+        # Case 1: value is less than self.value
+        if value < self.value:
+            # If there is no left child, insert value here
+            if self.left is None:
+                self.left = BSTNode(value)
+            else:
+                # Repeat the process on left subtree
+                self.left.insert(value)
+
+        # Case 2: value is greater than or equal self.value
+        elif value >= self.value:
+            # If there is no right child, insert value here
+            if self.right is None:
+                self.right = BSTNode(value)
+            else:
+                # Repeat the process on right subtree
+                self.right.insert(value)
 
     # Return True if the tree contains the value
     # False if it does not
+
     def contains(self, target):
-        pass
+        # Case 1: self.value is equal to the target
+        if self.value == target:
+            return True
+        # Case 2: target is less than self.value
+        if target < self.value:
+            # if self.left is None, it isn't in the tree
+            if self.left is None:
+                return False
+            else:
+                return self.left.contains(target)
+        # Case 3: otherwise
+        else:
+            if self.right is None:
+                return False
+            else:
+                return self.right.contains(target)
 
     # Return the maximum value found in the tree
     def get_max(self):
-        pass
+        max_val = self
+        if max_val.right is None:  # If the right side is empty, then give the current.value
+            return max_val.value
+        else:  # If there is something in the right side, then keep going down until each max_value is found and return it
+            return max_val.right.get_max()
 
+# anything i can express with a loop i can also use for recursion
+#
     # Call the function `fn` on the value of each node
+
     def for_each(self, fn):
-        pass
+        # If there is something in self.left, execute the (fn) forEach on it
+        if self.left:
+            self.left.for_each(fn)
+        # If there is something in self.right, execute the (fn) forEach on it like self.left ↑
+        if self.right:
+            self.right.for_each(fn)
+        fn(self.value)
 
     # Part 2 -----------------------
 
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
+
+# they dictate the order you visit the nodes in
+# inorder - left self right
+# preorder - self, left right
+# and postorder left right self
+# level order maybe not recursivly?
+#
+
     def in_order_print(self, node):
         pass
 
